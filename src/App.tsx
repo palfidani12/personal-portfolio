@@ -1,25 +1,28 @@
-import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Layout } from "./Layout";
+import { Introduction } from "./components/pages/Introduction";
+import { PersonalProjects } from "./components/pages/PersonalProjects";
+import { ProfessionalExperience } from "./components/pages/ProfessionalExperience";
+import { Skills } from "./components/pages/Skills";
+import { Contact } from "./components/pages/Contact";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export const App = () => {
   return (
-    <>
-      <div></div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="size-full">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Introduction />} />
+            <Route path="personal-projects" element={<PersonalProjects />} />
+            <Route
+              path="professional-experience"
+              element={<ProfessionalExperience />}
+            />
+            <Route path="skills" element={<Skills />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
-}
-
-export default App;
+};
