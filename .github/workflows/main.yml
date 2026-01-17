@@ -48,5 +48,5 @@ jobs:
           SOURCE: "build/"       # The folder created by 'npm run build'
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
-          TARGET: "/var/www/danielplfi.com/html" # The path to your web root on the server
+          TARGET: "/public_html" # The path to your web root on the server
           EXCLUDE: "/node_modules/"
