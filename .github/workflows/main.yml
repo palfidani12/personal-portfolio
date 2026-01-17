@@ -1,23 +1,57 @@
-on: [push]
+name: Build and Deploy to Production
+
+# 1. When should this run?
+on:
+  push:
+    branches:
+      - main  # Only trigger when code is pushed to the main branch
+
 jobs:
+  # JOB 1: Build the application
   build:
     runs-on: ubuntu-latest
-    container: golang:alpine
     steps:
-      - run: apk update
-      - run: go build -o bin/hello
-      - uses: actions/upload-artifact@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          name: hello
-          path: bin/hello
-          retention-days: 7
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React app
+        run: npm run build
+        env:
+          REACT_APP_API_URL: ${{ secrets.PRODUCTION_API_URL }}
+
+      # Upload the 'build' folder so the next job can use it
+      - name: Upload Build Folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-assets
+          path: build/
+
+  # JOB 2: Deploy to the server
   deploy:
-    if: contains( github.ref, 'staging')
     runs-on: ubuntu-latest
-    container: golang:alpine
+    needs: build # Wait for the build job to finish successfully
     steps:
-      - uses: actions/download-artifact@v3
+      - name: Download Build Folder
+        uses: actions/download-artifact@v4
         with:
-          name: hello
-      - run: echo "Deploying to Staging"
-      - run: scp bin/hello remoteuser@remotehost:/remote/directory
+          name: production-assets
+          path: ./dist
+
+      - name: Deploy to Server via SSH
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: ${{ secrets.SERVER_IP }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          TARGET: "/var/www/danielplfi.com/html"
