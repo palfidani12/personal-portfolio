@@ -1,23 +1,23 @@
-build-job:
-  stage: build
-  script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
-
-test-job1:
-  stage: test
-  script:
-    - echo "This job tests something"
-
-test-job2:
-  stage: test
-  script:
-    - echo "This job tests something, but takes more time than test-job1."
-    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
-    - echo "which simulates a test that runs 20 seconds longer than test-job1"
-    - sleep 20
-
-deploy-prod:
-  stage: deploy
-  script:
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-  environment: production
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: golang:alpine
+    steps:
+      - run: apk update
+      - run: go build -o bin/hello
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hello
+          path: bin/hello
+          retention-days: 7
+  deploy:
+    if: contains( github.ref, 'staging')
+    runs-on: ubuntu-latest
+    container: golang:alpine
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: hello
+      - run: echo "Deploying to Staging"
+      - run: scp bin/hello remoteuser@remotehost:/remote/directory
