@@ -38,9 +38,9 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-avzr --delete" # 'a' is archive, 'v' is verbose, 'z' is compress, '--delete' removes old files
-          SOURCE: "../dist/"       # The folder created by 'npm run build'
+          SOURCE: "dist/"       # The folder created by 'npm run build'
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
           REMOTE_PORT: ${{ secrets.SERVER_PORT }}
-          TARGET: "/public_html" # The path to your web root on the server
+          TARGET: "public_html/" # The path to your web root on the server
           EXCLUDE: "/node_modules/"
