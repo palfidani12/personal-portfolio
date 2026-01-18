@@ -28,7 +28,7 @@ jobs:
         env:
           REACT_APP_API_URL: ${{ secrets.PRODUCTION_API_URL }}
       - name: List file structure
-        run: li
+        run: ls
 
   # JOB 2: Deploy to the server
   deploy:
