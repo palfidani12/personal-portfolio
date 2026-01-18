@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 
 export const Layout = () => {
   const location = useLocation();
-  const [isPageChanging, setIsPageChanging] = useState(false);
+  const [isPageChanging, setIsPageChanging] = useState(true);
 
   useEffect(() => {
-    setIsPageChanging(true);
     const timer = setTimeout(() => setIsPageChanging(false), 300);
     return () => clearTimeout(timer);
   }, [location.pathname]);

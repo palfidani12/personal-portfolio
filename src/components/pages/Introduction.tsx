@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { InteractiveMap } from "../InteractiveMap";
+import { useNavigate } from "react-router-dom";
 
 export const Introduction = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [skillsVisible, setSkillsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Trigger initial animation
@@ -21,30 +22,20 @@ export const Introduction = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-          <div
-            className="absolute inset-0 opacity-40"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
-
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400 rounded-full opacity-20 animate-float"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400 rounded-full opacity-20 animate-float" />
         <div
           className="absolute top-40 right-20 w-16 h-16 bg-purple-400 rounded-full opacity-20 animate-float"
           style={{ animationDelay: "1s" }}
-        ></div>
+        />
         <div
           className="absolute bottom-40 left-20 w-12 h-12 bg-indigo-400 rounded-full opacity-20 animate-float"
           style={{ animationDelay: "2s" }}
-        ></div>
+        />
         <div
           className="absolute bottom-20 right-10 w-24 h-24 bg-pink-400 rounded-full opacity-20 animate-float"
           style={{ animationDelay: "0.5s" }}
-        ></div>
+        />
 
         <div className="relative z-10 container mx-auto px-6 py-20">
           <div className="max-w-6xl mx-auto">
@@ -76,11 +67,12 @@ export const Introduction = () => {
                 </div>
 
                 <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
-                  Experienced in frontend, <br/> Eager to everything
+                  Experienced in frontend, <br /> Eager to everything
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+                  onClick={()=>navigate('/personal-projects')}>
                     <span className="relative z-10 flex items-center justify-center">
                       View My Work
                       <svg
@@ -100,7 +92,8 @@ export const Introduction = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
 
-                  <button className="px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group">
+                  <button className="px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group cursor-pointer"
+                  onClick={()=>navigate('/contact')}>
                     <span className="flex items-center justify-center">
                       <svg
                         className="mr-2 w-5 h-5 group-hover:animate-bounce"
@@ -124,26 +117,18 @@ export const Introduction = () => {
                 <div className="grid grid-cols-3 gap-6 pt-8">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                      3+
+                      3+ Years
                     </div>
                     <div className="text-sm text-slate-600 dark:text-slate-400">
-                      Years
+                      Professional experience
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                      50+
+                      Multiple
                     </div>
                     <div className="text-sm text-slate-600 dark:text-slate-400">
                       Projects
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                      100%
-                    </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">
-                      Satisfaction
                     </div>
                   </div>
                 </div>
@@ -227,7 +212,7 @@ export const Introduction = () => {
           </h3>
 
           {/* Interactive Map */}
-          <div
+          {/* <div
             className={`mb-16 transition-all duration-1000 delay-300 ${
               skillsVisible
                 ? "opacity-100 translate-y-0"
@@ -235,7 +220,7 @@ export const Introduction = () => {
             }`}
           >
             <InteractiveMap />
-          </div>
+          </div> */}
 
           {/* Education Cards */}
           <div className="space-y-8">
