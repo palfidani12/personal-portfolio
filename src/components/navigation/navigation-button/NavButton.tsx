@@ -8,7 +8,7 @@ export type NavButtonType =
   | "skills"
   | "contact";
 
-export const NavigationButton = ({ type }: { type: NavButtonType }) => {
+export const NavigationButton = ({ type, isActive = false }: { type: NavButtonType; isActive?: boolean }) => {
   const getButtonText = (buttonType: NavButtonType) => {
     let text: string = "";
     switch (buttonType) {
@@ -58,11 +58,15 @@ export const NavigationButton = ({ type }: { type: NavButtonType }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="p-3 hover:border-b-2 transition-all duration-100 cursor-pointer">
-      <span
-        className="font-bold"
-        onClick={() => navigate(getButtonRoute(type))}
-      >
+    <div 
+      className={`px-4 py-2 rounded-lg transition-all duration-200 cursor-pointer ${
+        isActive 
+          ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg" 
+          : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
+      }`}
+      onClick={() => navigate(getButtonRoute(type))}
+    >
+      <span className="font-medium text-sm">
         {getButtonText(type)}
       </span>
     </div>
