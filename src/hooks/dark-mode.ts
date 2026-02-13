@@ -18,11 +18,9 @@ export const useDarkMode = () => {
       console.warn("DarkMode - App root div cannot be found");
     } else {
       if (isDarkMode) {
-        root.classList.add("dark");
-        htmlElement.classList.add("dark");
+        htmlElement.setAttribute("data-theme", "dark");
       } else {
-        root.classList.remove("dark");
-        htmlElement.classList.remove("dark");
+        htmlElement.setAttribute("data-theme", "light");
       }
     }
 

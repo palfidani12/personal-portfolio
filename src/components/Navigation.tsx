@@ -1,16 +1,15 @@
 import { navigationMenuPoints } from "../data/data";
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import { scrollToSection } from "../utils/scroll";
+import { useScroll } from "../hooks/scroll";
 
 export const Navigation = () => {
-  const isScrolled = false;
+  const { isScrolled } = useScroll();
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        isScrolled ? "backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6">
@@ -30,7 +29,7 @@ export const Navigation = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-sm font-medium tracking-wider text-white hover:text-cyan-400 dark:text-slate-300 dark:hover:text-cyan-400 transition-colors cursor-pointer"
+                className="text-sm font-medium tracking-wider text-(--nav-button-text-color) hover:text-(--nav-button-text-color-hover) transition-colors cursor-pointer"
               >
                 {link.name}
               </button>

@@ -11,13 +11,40 @@
 
   /* Theme variables */
   --bg-color: #f8fafc;
+  --nav-button-text-color: #1e293b;
+  --nav-button-text-color-hover: var(--color-cyan-400);
+  --bg-color-from: var(--color-white);
+  --bg-color-to: var(--color-slate-100);
+  --profile-pic-border-color: var(--color-slate-200);
+  --default-font-color: var(--color-slate-900);
+  --secondary-font-color: var(--color-slate-600);
+  --third-font-color: var(--color-slate-900);
+  --hero-button-bg-color: var(--color-slate-900);
+  --hero-button-hover-color: var(--color-slate-800);
+  --second-hero-button-border-color: var(--color-slate-300);
+  --second-hero-button-hover-border-color: var(--color-slate-400);
+  --second-hero-button-hover-bg-color: var(--color-slate-100);
 }
 
 /* Dark Mode Override */
-[data-theme='dark'] {
-  --bg-color: #0f172a;;
-  --text-color: #f0f0f0;
-  --accent-color: #5dade2;
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --nav-button-text-color: var(--color-slate-300);
+  --bg-color-from: var(--color-slate-900);
+  --bg-color-to: var(--color-slate-800);
+  --profile-pic-border-color: var(--color-slate-700);
+  --default-font-color: var(--color-white);
+  --secondary-font-color: var(--color-slate-300);
+  --third-font-color: var(--color-slate-400);
+  --hero-button-bg-color: var(--color-slate-700);
+  --hero-button-hover-color: var(--color-slate-600);
+  --second-hero-button-border-color: var(--color-slate-600);
+  --second-hero-button-hover-border-color: var(--color-slate-500);
+  --second-hero-button-hover-bg-color: color-mix(
+    in oklab,
+    var(--color-slate-800) /* oklch(27.9% 0.041 260.031) = #1d293d */ 50%,
+    transparent
+  );
 }
 
 *,
@@ -37,7 +64,6 @@ html {
 body {
   background-color: var(--bg-color);
 }
-
 
 /* Webkit custom scrollbar */
 ::-webkit-scrollbar {
@@ -59,14 +85,14 @@ body {
   background: linear-gradient(180deg, #94a3b8, #64748b);
 }
 
-[data-theme='dark'] ::-webkit-scrollbar-track {
+[data-theme="dark"] ::-webkit-scrollbar-track {
   background: #0f172a;
 }
 
-[data-theme='dark'] ::-webkit-scrollbar-thumb {
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #334155, #475569);
 }
 
-[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #475569, #64748b);
 }
