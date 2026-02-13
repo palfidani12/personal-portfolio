@@ -1,33 +1,43 @@
 import { useState, useEffect } from "react";
 
 export const useDarkMode = () => {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme) return savedTheme === "dark";
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return mediaQuery.matches;
   });
 
   useEffect(() => {
-    const root = window.document.getElementById("app-main-div");
+    const eventListener = (e: MediaQueryListEvent) => {
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme) return savedTheme === "dark";
+      setIsDarkMode(e.matches);
+    };
+    mediaQuery.addEventListener("change", eventListener);
+    return () => {
+      mediaQuery.removeEventListener("change", eventListener);
+    };
+  }, [mediaQuery]);
+
+  useEffect(() => {
     const htmlElement = window.document.documentElement;
-    const theme = isDarkMode ? "dark" : "light";
 
-    if (root === null) {
-      console.warn("DarkMode - App root div cannot be found");
+    if (isDarkMode) {
+      htmlElement.setAttribute("data-theme", "dark");
     } else {
-      if (isDarkMode) {
-        htmlElement.setAttribute("data-theme", "dark");
-      } else {
-        htmlElement.setAttribute("data-theme", "light");
-      }
+      htmlElement.setAttribute("data-theme", "light");
     }
-
-    localStorage.setItem("theme", theme);
   }, [isDarkMode]);
 
-  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+  const toggleTheme = () => {
+    const theme = isDarkMode ? "dark" : "light";
+    setIsDarkMode((prev) => !prev);
+    localStorage.setItem("theme", theme);
+  };
 
   return { isDarkMode, toggleTheme };
 };
