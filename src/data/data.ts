@@ -8,10 +8,11 @@ export const navigationMenuPoints = [
 ];
 
 // Hero
-export const heroImageUrl = undefined;
-export const firstName = "";
-export const lastName = "";
-export const professionTitle = "";
+export const profileImageUrl = "https://www.purina.hu/sites/default/files/styles/ttt_image_original/public/2024-07/vedd_eszre_a_jeleket_ilyen_egy_stresszes_cica_hero.webp?itok=bwOnusTR"; // Add your profile picture URL here
+export const firstName = "Dániel";
+export const lastName = "Pálfi";
+export const heroIntro = "I'm a passionate Software Engineer specializing in building exceptional web applications. With a strong background in both frontend and backend development, I create scalable, user-friendly solutions that combine beautiful design with powerful functionality.";
+export const professionTitle = "Software Engineer";
 export const linkedInUrl = "";
 export const githubUrl = "";
 export const contactEmail = "";

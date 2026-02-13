@@ -11,6 +11,7 @@ export const useDarkMode = () => {
 
   useEffect(() => {
     const root = window.document.getElementById("app-main-div");
+    const htmlElement = window.document.documentElement;
     const theme = isDarkMode ? "dark" : "light";
 
     if (root === null) {
@@ -18,8 +19,10 @@ export const useDarkMode = () => {
     } else {
       if (isDarkMode) {
         root.classList.add("dark");
+        htmlElement.classList.add("dark");
       } else {
         root.classList.remove("dark");
+        htmlElement.classList.remove("dark");
       }
     }
 
