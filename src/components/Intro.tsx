@@ -4,22 +4,22 @@ export const Intro = () => {
   return (
     <div
       id="about"
-      className="py-24 px-6 lg:px-12 bg-white dark:bg-slate-900 transition-colors"
+      className="py-24 px-6 lg:px-12 bg-(--bg-color) transition-colors"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-[300px_1fr] gap-16">
           {/* Left Column - Heading */}
           <div>
-            <h2 className="text-5xl font-light text-slate-900 dark:text-white mb-4">
+            <h2 className="text-5xl font-light text-(--default-font-color) mb-4">
               Intro
             </h2>
-            <p className="text-slate-500 dark:text-slate-400">
+            <p className="text-(--secondary-font-color)">
               What I am all about.
             </p>
           </div>
 
           {/* Right Column - Content */}
-          <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+          <div className="space-y-6 text-(--third-font-color) leading-relaxed">
             <p>{introFirstParagraph}</p>
             <p>
               My expertise spans across modern JavaScript frameworks,

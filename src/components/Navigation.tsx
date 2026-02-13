@@ -19,7 +19,7 @@ export const Navigation = () => {
             onClick={() => scrollToSection("home")}
             className="text-2xl font-light tracking-wide"
           >
-            <span className="text-slate-900 dark:text-white">daniel</span>
+            <span className="text-(--default-font-color)">daniel</span>
             <span className="text-cyan-500">palfi</span>
           </button>
 

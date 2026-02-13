@@ -11,6 +11,8 @@
 
   /* Theme variables */
   --bg-color: #f8fafc;
+  --secondary-bg-color: var(--color-slate-100);
+  --footer-bg-color: var(--color-slate-900);
   --nav-button-text-color: #1e293b;
   --nav-button-text-color-hover: var(--color-cyan-400);
   --bg-color-from: var(--color-white);
@@ -24,11 +26,16 @@
   --second-hero-button-border-color: var(--color-slate-300);
   --second-hero-button-hover-border-color: var(--color-slate-400);
   --second-hero-button-hover-bg-color: var(--color-slate-100);
+  --cyan-color: var(--color-cyan-600);
+  --cyan-hover-color: var(--color-cyan-700);
+  --pole-color: var(--color-slate-200);
 }
 
 /* Dark Mode Override */
 [data-theme="dark"] {
   --bg-color: #0f172a;
+  --secondary-bg-color: var(--color-slate-800);
+  --footer-bg-color: var(--color-slate-950);
   --nav-button-text-color: var(--color-slate-300);
   --bg-color-from: var(--color-slate-900);
   --bg-color-to: var(--color-slate-800);
@@ -45,6 +52,9 @@
     var(--color-slate-800) /* oklch(27.9% 0.041 260.031) = #1d293d */ 50%,
     transparent
   );
+  --cyan-color: var(--color-cyan-400);
+  --cyan-hover-color: var(--color-cyan-300);
+  --pole-color: var(--color-slate-700);
 }
 
 *,
