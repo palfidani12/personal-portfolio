@@ -13,9 +13,6 @@ export const Skills = () => {
             <h2 className="text-5xl font-light text-(--default-font-color) mb-4">
               Skills
             </h2>
-            <p className="text-(--secondary-font-color)">
-              Technologies I work with.
-            </p>
           </div>
 
           {/* Right Column - Skills */}

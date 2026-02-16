@@ -11,8 +11,8 @@ export const SocialIcon = ({
 }) => {
   return (
     <a
-      href={iconUrl}
-      target="_blank"
+      href={iconType === "Email" ? `mailto:${iconUrl}` : iconUrl}
+      target={iconType === "Email" ? "_self" : "_blank"}
       rel="noopener noreferrer"
       className="w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-cyan-500 text-white rounded transition-all backdrop-blur-sm"
       aria-label={iconType}

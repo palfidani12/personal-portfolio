@@ -12,9 +12,6 @@ export const Education = () => {
             <h2 className="text-5xl font-light text-(--default-font-color) mb-4">
               Education
             </h2>
-            <p className="text-(--secondary-font-color)">
-              My academic background.
-            </p>
           </div>
 
           <div className="space-y-12">

@@ -1,5 +1,11 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
-import { contactEmail, location, phoneNumber } from "../data/data";
+import { Github, Linkedin } from "lucide-react";
+import {
+  contactEmail,
+  githubUrl,
+  linkedInUrl,
+  location,
+  phoneNumber,
+} from "../data/data";
 
 export const Contact = () => {
   return (
@@ -13,9 +19,6 @@ export const Contact = () => {
             <h2 className="text-5xl font-light text-(--default-font-color) mb-4">
               Contact
             </h2>
-            <p className="text-(--secondary-font-color)">
-              Let's work together.
-            </p>
           </div>
 
           <div className="space-y-12">
@@ -25,7 +28,7 @@ export const Contact = () => {
                   Email
                 </h3>
                 <a
-                  href="mailto:john.smith@example.com"
+                  href={`mailto:${contactEmail}`}
                   className="text-lg text-(--default-font-color) hover:text-(--cyan-color) transition-colors"
                 >
                   {contactEmail}
@@ -37,7 +40,7 @@ export const Contact = () => {
                   Phone
                 </h3>
                 <a
-                  href="tel:+1234567890"
+                  href={`tel:${phoneNumber}`}
                   className="text-lg text-(--default-font-color) hover:text-(--cyan-color) transition-colors"
                 >
                   {phoneNumber}
@@ -60,7 +63,7 @@ export const Contact = () => {
               </h3>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com"
+                  href={githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:border-cyan-500 dark:hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
@@ -69,22 +72,13 @@ export const Contact = () => {
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href={linkedInUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:border-cyan-500 dark:hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:border-cyan-500 dark:hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -95,12 +89,6 @@ export const Contact = () => {
                 opportunities. Whether you have a question or just want to say
                 hi, feel free to reach out.
               </p>
-              <a
-                href="mailto:john.smith@example.com"
-                className="inline-flex items-center justify-center px-8 py-3 bg-(--cyan-color) hover:bg-(--cyan-hover-color) text-white rounded-lg transition-all"
-              >
-                Get in Touch
-              </a>
             </div>
           </div>
         </div>

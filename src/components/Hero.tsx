@@ -7,9 +7,9 @@ import {
   lastName,
   linkedInUrl,
   professionTitle,
-  profileImageUrl,
 } from "../data/data";
 import { SocialIcon } from "./SocialIcon";
+import profilePicture from "../assets/profile.jpeg";
 
 export const Hero = () => {
   const handleContactClick = () => {
@@ -18,7 +18,7 @@ export const Hero = () => {
   };
 
   const handleWorkClick = () => {
-    const workSection = document.getElementById("work");
+    const workSection = document.getElementById("experience");
     workSection?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -31,10 +31,10 @@ export const Hero = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full py-20 flex flex-col">
         <div className="text-center max-w-5xl mx-auto">
-          {profileImageUrl && (
+          {profilePicture && (
             <div className="mb-8 animate-scale-in">
               <img
-                src={profileImageUrl}
+                src={profilePicture}
                 alt={`${firstName} ${lastName}`}
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-(--profile-pic-border-color) shadow-xl"
               />
@@ -69,7 +69,7 @@ export const Hero = () => {
               onClick={handleWorkClick}
               className="px-8 py-4 bg-transparent text-(--default-font-color) font-medium rounded-lg border-2 border-(--second-hero-button-border-color) hover:border-(--second-hero-button-hover-border-color) hover:bg-(--second-hero-button-hover-bg-color) transition-all duration-300"
             >
-              View My Work
+              View My Experience
             </button>
           </div>
 

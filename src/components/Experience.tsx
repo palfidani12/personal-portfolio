@@ -13,9 +13,6 @@ export const Experience = () => {
             <h2 className="text-5xl font-light text-(--default-font-color) mb-4">
               Experience
             </h2>
-            <p className="text-(--secondary-font-color)">
-              My professional journey.
-            </p>
           </div>
 
           {/* Right Column - Experience Items */}
@@ -38,7 +35,11 @@ export const Experience = () => {
                   </p>
                 </div>
                 <p className="text-(--third-font-color) leading-relaxed">
-                  {exp.description}
+                  <ul className="list-disc list-inside space-y-2 pl-3.5">
+                    {exp.descriptionItems.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
                 </p>
               </div>
             ))}
