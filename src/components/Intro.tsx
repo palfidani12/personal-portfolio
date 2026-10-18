@@ -14,7 +14,7 @@ export const Intro = () => {
       title={
         <>
           Building software that is{" "}
-          <span className="font-serif font-semibold text-accent">
+          <span className="text-accent">
             useful
           </span>
           , fast and a joy to use.

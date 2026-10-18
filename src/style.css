@@ -7,7 +7,6 @@
 @theme {
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-serif: "Fraunces", ui-serif, Georgia, serif;
 
   /* Theme colors, usable as bg-bg, text-fg, border-line, text-accent ... */
   --color-bg: var(--bg);

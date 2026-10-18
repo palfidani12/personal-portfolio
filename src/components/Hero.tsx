@@ -30,10 +30,7 @@ export const Hero = () => {
             </p>
 
             <h1 className="text-[clamp(3rem,10vw,6rem)] leading-[0.95] font-medium tracking-[-0.04em] text-fg mb-6 animate-fade-in-up">
-              {firstName}{" "}
-              <span className="font-serif font-semibold tracking-[-0.035em] text-accent">
-                {lastName}
-              </span>
+              {firstName} {lastName}
             </h1>
 
             <p className="text-xl sm:text-2xl font-medium text-fg mb-4 animate-fade-in-up animation-delay-100">

@@ -9,6 +9,7 @@ import { ThemeToggleButton } from "./ThemeToggleButton";
 import { SocialIcon } from "./SocialIcon";
 import { scrollToSection } from "../utils/scroll";
 import { useActiveSection, useScroll } from "../hooks/scroll";
+import dpMark from "../assets/dp-mark.png";
 
 const sectionIds = navigationMenuPoints.map((link) => link.id);
 
@@ -49,15 +50,24 @@ export const Navigation = () => {
         {/* Logo */}
         <button
           onClick={() => handleNavigate("home")}
-          className="flex items-center gap-2.5 cursor-pointer"
+          className="flex items-center p-1 -m-1 cursor-pointer"
           aria-label="Back to top"
         >
-          <span className="grid place-items-center size-8 rounded-lg bg-fg text-bg font-mono text-xs font-medium">
-            DP
-          </span>
-          <span className="text-[15px] font-medium tracking-tight text-fg">
-            daniel<span className="text-accent">palfi</span>
-          </span>
+          {/* The monogram is used as a mask so it takes the theme's text color */}
+          <span
+            className="block h-7 w-[38px] bg-fg"
+            style={{
+              maskImage: `url(${dpMark})`,
+              WebkitMaskImage: `url(${dpMark})`,
+              maskSize: "contain",
+              WebkitMaskSize: "contain",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              maskPosition: "center",
+              WebkitMaskPosition: "center",
+            }}
+            aria-hidden="true"
+          />
         </button>
 
         {/* Desktop Navigation */}
