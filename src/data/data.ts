@@ -1,149 +1,259 @@
-export type University = {
-  id: string;
-  name: string;
-  degree: string;
-  year: string;
-  gpa: string;
-  lat: number;
-  lng: number;
-  logo: string;
-  color: string;
+// Navigation
+export const navigationMenuPoints = [
+  { id: "home", name: "Home" },
+  { id: "about", name: "About" },
+  { id: "experience", name: "Experience" },
+  { id: "projects", name: "Projects" },
+  { id: "education", name: "Education" },
+  { id: "skills", name: "Skills" },
+  { id: "contact", name: "Contact" },
+];
+
+// Hero
+export const firstName = "Dániel";
+export const lastName = "Pálfi";
+export const heroIntro =
+  "I am a software engineer with experience in frontend and backend development. I specialize in building efficient and user-friendly web applications.";
+export const professionTitle = "Software Engineer";
+export const linkedInUrl = "https://www.linkedin.com/in/dplfi1206/";
+export const githubUrl = "https://github.com/palfidani12";
+export const contactEmail = "palfidani4@gmail.com";
+export const currentStatus = "Double-degree MSc · Aalto & EURECOM";
+
+// About
+export const aboutLead =
+  "I'm a software engineer with 3+ years of production experience, now completing a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
+export const aboutParagraphs = [
+  "Most of my work has been on the frontend, building React and TypeScript features in a micro-frontend platform at Genesys, backed by solid Node.js and PostgreSQL experience. My master's is where I'm going deeper into AI, machine learning and robotics.",
+  "Outside of work I build side projects to try out new technologies, and I've studied in four countries along the way.",
+];
+export const focusAreas = [
+  {
+    title: "Frontend engineering",
+    description:
+      "Reusable, accessible React components and end-to-end features in TypeScript, from Figma to production.",
+  },
+  {
+    title: "Backend & delivery",
+    description:
+      "Node.js and Express APIs on PostgreSQL, shipped through CI/CD pipelines with Jenkins, Docker and AWS.",
+  },
+  {
+    title: "AI & robotics",
+    description:
+      "Machine learning, computer vision and autonomous vessels through my master's and the EIT Digital summer school.",
+  },
+];
+
+// Experience
+// Roles are listed newest first; `promotion` is shown between consecutive roles
+export const workExperiences = [
+  {
+    company: "Genesys",
+    promotion: "Converted from part-time to full-time within 12 months",
+    roles: [
+      {
+        title: "Associate Software Engineer",
+        type: "Full-time",
+        period: "2023.07 - 2025.08",
+        tech: ["React", "TypeScript", "Vite", "SCSS", "Jenkins", "Docker", "AWS", "Playwright", "Vitest"],
+        descriptionItems: [
+          "Delivered end-to-end implementation of key features in a React + TypeScript micro-frontend environment using Vite and SCSS",
+          "Enhanced deployment reliability by integrating CI/CD pipelines in Jenkins and Docker, reducing manual deployment effort by 30%",
+          "Utilised AWS S3 and Lambda for cloud-based solutions and optimised static asset delivery",
+          "Led sprint meetings and collaborated across distributed international teams in an Agile/Scrum environment",
+          "Wrote robust tests (unit, system, and E2E) using Playwright and Vitest, improving overall test coverage.",
+          "Contributed to UX design discussions using Figma and coordinated development via Jira",
+        ],
+      },
+      {
+        title: "Associate Software Engineer",
+        type: "Part-time",
+        period: "2022.07 - 2023.06",
+        tech: ["React", "TypeScript", "Vite", "Node.js", "Express", "Playwright", "Jest"],
+        descriptionItems: [
+          "Joined a newly formed team building a next-generation frontend platform",
+          "Built reusable, accessible React components using TypeScript and Vite",
+          "Developed backend integrations with Node.js and Express, connecting frontend with internal APIs",
+          "Practiced Agile and Git-based collaboration across multiple international teams",
+          "Assisted in implementing automated testing pipelines using Playwright and Jest",
+          "Recognized for strong technical autonomy and problem-solving, leading to promotion from part-time to full-time engineer within 12 months",
+        ],
+      },
+    ],
+  },
+];
+
+// Education
+export const doubleDegree = {
+  programme: "EIT Digital Master School",
+  major: "Autonomous Systems and Intelligent Robots",
+  period: "2025 - 2027",
+  description:
+    "A two-year double-degree master's focused on autonomous systems and intelligent robotics, where I am deepening my knowledge in AI, machine learning, and robotics. One year at each university, with a separate MSc awarded by both.",
+  stages: [
+    {
+      year: "Year 1",
+      period: "2025 - 2026",
+      school: "Aalto University",
+      location: "Espoo, Finland",
+      degree: "Master of Science (Technology)",
+    },
+    {
+      year: "Year 2",
+      period: "2026 - 2027",
+      school: "EURECOM",
+      location: "Antibes, France",
+      degree: "Master of Science in Networks and Telecommunications",
+      specialization: "Internet of Things",
+    },
+  ],
 };
 
-export const universities: University[] = [
+export const previousEducation = [
   {
-    id: "elte",
-    name: "ELTE",
-    degree: "Master of Science in Computer Science",
-    year: "2020 - 2022",
-    gpa: "3.9/4.0",
-    lat: 0.4275,
-    lng: 150.1697,
-    logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop&crop=center",
-    color: "from-red-500 to-red-600",
-  },
-  {
-    id: "upv",
-    name: "Stanford University",
-    degree: "Master of Science in Computer Science",
-    year: "2020 - 2022",
-    gpa: "3.9/4.0",
-    lat: 37.4275,
-    lng: -122.1697,
-    logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop&crop=center",
-    color: "from-red-500 to-red-600",
-  },
-  {
-    id: "aalto",
-    name: "Stanford University",
-    degree: "Master of Science in Computer Science",
-    year: "2020 - 2022",
-    gpa: "3.9/4.0",
-    lat: 37.4275,
-    lng: -122.1697,
-    logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop&crop=center",
-    color: "from-red-500 to-red-600",
-  },
-  {
-    id: "aegean",
-    name: "University of California, Berkeley",
     degree: "Bachelor of Science in Computer Science",
-    year: "2016 - 2020",
-    gpa: "3.8/4.0",
-    lat: 37.8719,
-    lng: -122.2585,
-    logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=60&h=60&fit=crop&crop=center",
-    color: "from-blue-500 to-blue-600",
-  },
-];
-
-export const contactInfo = [
-  {
-    title: "Email",
-    value: "palfidani4@gmail.com",
-    link: "mailto:palfidani4@gmail.com",
-  },
-  {
-    title: "Phone",
-    value: "+36 30 014 4234",
-    link: "tel:+36300144234",
-  },
-  {
-    title: "Location",
-    value: "Helsinki, Finland",
-    link: "#",
-  },
-  {
-    title: "LinkedIn",
-    value: "@dplfi1206",
-    link: "https://www.linkedin.com/in/dplfi1206/",
-  },
-];
-
-export const socialLinks = [
-  {
-    name: "GitHub",
-    url: "https://github.com/palfidani12",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/dplfi1206/",
-  },
-];
-
-export const experiences = [
-  {
-    id: 1,
-    company: "Genesys",
-    position: "Associate Software Engineer",
-    duration: "2024.07 - 2025.08",
-    location: "Hybrid (Budapest)",
-    type: "Full-time",
-    logo: "https://www.genesys.com/media/Genesys_logo-mark.svg",
+    school: "Universidad del País Vasco",
+    period: "2023.01 - 2023.06",
     description:
-      "Leading development of scalable web applications and mentoring junior developers. Responsible for architecture decisions and technical roadmap planning.",
-    achievements: [
-      "Led a team of 5 developers in building a microservices architecture that improved system performance by 40%",
-      "Implemented CI/CD pipelines reducing deployment time from 2 hours to 15 minutes",
-      "Mentored 3 junior developers who were promoted within 12 months",
-      "Redesigned legacy system resulting in 60% reduction in maintenance costs",
+      "Erasmus semester in Spain during my bachelor studies, where I deepened my knowledge of software development and gained international experience.",
+  },
+  {
+    degree: "Bachelor of Science in Computer Science",
+    school: "Eötvös Loránd University",
+    period: "2021 - 2024",
+    description:
+      "Pursued a bachelor's degree in computer science, where I developed a strong foundation in programming, algorithms, and software engineering principles.",
+  },
+];
+
+export const certifications = [
+  {
+    title: "EIT Digital Summer School in Maritime Informatics & Robotics",
+    issuer: "EIT Digital · University of the Aegean",
+    location: "Greece",
+    period: "29 Jun - 10 Jul 2026",
+    descriptionItems: [
+      "Built boats as a team and set them up with ArduPilot, first steering them remotely along predefined paths",
+      "Added a separate Raspberry Pi running image processing and other autopilot integrations to control the vessel autonomously",
+      "Final challenge: complete a predefined route with the vessel without explicitly programming the route, using Python",
     ],
-    technologies: [
+    tech: ["ArduPilot", "Raspberry Pi", "Python", "Image Processing"],
+    certificateUrl:
+      "https://www.smartcertificate.com/SmartCertificate/?1%7c927e9716-44fa-4a62-8fcf-2f2c08e3775d%7c87bfc32f-02ba-435d-b434-683221427d3b",
+  },
+];
+
+// Skills
+export const skillsByCategories = [
+  {
+    category: "Frontend",
+    skills: [
       "React",
-      "Node.js",
-      "AWS",
-      "Docker",
-      "Kubernetes",
-      "PostgreSQL",
-      "GraphQL",
+      "TypeScript",
+      "Scss",
+      "Tailwind CSS",
+      "HTML/CSS",
+      "Redux",
+      "Zustand",
+      "Vite",
     ],
-    current: false,
   },
   {
-    id: 2,
-    company: "Genesys",
-    position: "Software Engineer Intern",
-    duration: "2023.07 - 2024.06",
-    location: "Hybrid (Budapest)",
-    type: "Part-time (32h)",
-    logo: "https://www.genesys.com/media/Genesys_logo-mark.svg",
-    description:
-      "Learned the fundamentals of working in a multinational environment, using agile methodoligies to deliver production ready code with throughout testing.",
-    achievements: [
-      "Assisted in the delivery of a product from the planning phase all the way until the release and technical support phase",
-      "Developed reusable component library used across 20+ projects",
-      "Improved application load times by 50% through optimization",
-      "Implemented automated testing reducing bugs by 70%",
+    category: "Backend",
+    skills: [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "REST APIs",
+      "Spring Boot",
+      "Java",
+      "AWS Lambda",
     ],
-    technologies: [
-      "Vue.js",
-      "Express.js",
-      "MongoDB",
-      "Redis",
+  },
+  {
+    category: "AI & Machine Learning",
+    skills: [
+      "Python",
+      "NumPy",
+      "scikit-learn",
+      "PyTorch",
+      "TensorFlow",
+      "MATLAB",
+      "RAG",
+      "LLM APIs",
+      "Prompt Engineering",
+      "Computer Vision",
+      "NLP",
+    ],
+  },
+  {
+    category: "DevOps",
+    skills: [
       "Docker",
-      "Jest",
-      "Sass",
+      "AWS",
+      "CI/CD",
+      "GitHub Actions",
+      "Terraform",
+      "Jenkins",
     ],
-    current: false,
+  },
+  {
+    category: "Tools & Others",
+    skills: [
+      "Git",
+      "Jest",
+      "Figma",
+      "Agile Methodologies",
+      "Scrum",
+      "Kanban",
+      "Playwright",
+      "Integration Testing",
+      "Unit Testing",
+    ],
   },
 ];
+
+// Projects
+export const projects = [
+  {
+    title: "Budgetr",
+    description:
+      "A personal budgeting app for tracking spending across money pockets and transactions. A NestJS REST API with JWT authentication and PostgreSQL, a React dashboard with charts, and an earlier React Native (Expo) mobile prototype.",
+    tech: ["NestJS", "TypeORM", "PostgreSQL", "React", "TanStack Query", "Recharts", "Expo"],
+    status: "In progress",
+    links: [
+      { label: "Backend", url: "https://github.com/palfidani12/budgetr-backend" },
+      { label: "Frontend", url: "https://github.com/palfidani12/budgetr-frontend" },
+      { label: "Mobile", url: "https://github.com/palfidani12/budgetR" },
+    ],
+  },
+  {
+    title: "World Traveler",
+    description:
+      "A map-based travel app built with Next.js 16, Firebase email/password authentication and interactive Leaflet maps.",
+    tech: ["Next.js", "TypeScript", "Firebase", "Leaflet", "Tailwind CSS"],
+    status: "In progress",
+    links: [{ label: "Source", url: "https://github.com/palfidani12/world-traveler" }],
+  },
+  {
+    title: "Editable Data Table",
+    description:
+      "A Vue 3 app for viewing, creating, editing, deleting and sorting table rows with local persistence, covered by Vitest unit tests and Playwright end-to-end tests.",
+    tech: ["Vue 3", "TypeScript", "PrimeVue", "Vitest", "Playwright"],
+    status: "Completed",
+    links: [{ label: "Source", url: "https://github.com/palfidani12/editable-data-table" }],
+  },
+  {
+    title: "Personal Portfolio",
+    description:
+      "This website. A responsive single-page portfolio with light and dark themes, deployed automatically with GitHub Actions.",
+    tech: ["React 19", "TypeScript", "Tailwind CSS", "Vite", "GitHub Actions"],
+    status: "Live",
+    links: [{ label: "Source", url: "https://github.com/palfidani12/personal-portfolio" }],
+  },
+];
+
+// Contact
+export const location = "Antibes, France";
+export const phoneNumber = "+36 30 014 4234";
