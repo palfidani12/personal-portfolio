@@ -22,7 +22,7 @@ export const currentStatus = "Double-degree MSc · Aalto & EURECOM";
 
 // About
 export const aboutLead =
-  "I'm a software engineer with 3+ years of production experience, now completing a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
+  "I'm a software engineer with 3 years of production experience, now completing a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
 export const aboutParagraphs = [
   "Most of my work has been on the frontend, building React and TypeScript features in a micro-frontend platform at Genesys, backed by solid Node.js and PostgreSQL experience. My master's is where I'm going deeper into AI, machine learning and robotics.",
   "Outside of work I build side projects to try out new technologies, and I've studied in four countries along the way.",
