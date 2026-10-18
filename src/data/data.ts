@@ -13,7 +13,7 @@ export const navigationMenuPoints = [
 export const firstName = "Dániel";
 export const lastName = "Pálfi";
 export const heroIntro =
-  "I am a software engineer with experience in frontend and backend development. I specialize in building efficient and user-friendly web applications.";
+  "I build efficient, user-friendly web applications across the frontend and backend. I'm currently studying for a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
 export const professionTitle = "Software Engineer";
 export const linkedInUrl = "https://www.linkedin.com/in/dplfi1206/";
 export const githubUrl = "https://github.com/palfidani12";
@@ -22,7 +22,7 @@ export const currentStatus = "Double-degree MSc · Aalto & EURECOM";
 
 // About
 export const aboutLead =
-  "I'm a software engineer with 3+ years of production experience, now completing a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
+  "I'm a software engineer with 3 years of production experience, now completing a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
 export const aboutParagraphs = [
   "Most of my work has been on the frontend, building React and TypeScript features in a micro-frontend platform at Genesys, backed by solid Node.js and PostgreSQL experience. My master's is where I'm going deeper into AI, machine learning and robotics.",
   "Outside of work I build side projects to try out new technologies, and I've studied in four countries along the way.",
@@ -61,7 +61,7 @@ export const workExperiences = [
           "Delivered end-to-end implementation of key features in a React + TypeScript micro-frontend environment using Vite and SCSS",
           "Enhanced deployment reliability by integrating CI/CD pipelines in Jenkins and Docker, reducing manual deployment effort by 30%",
           "Utilised AWS S3 and Lambda for cloud-based solutions and optimised static asset delivery",
-          "Led sprint meetings and collaborated across distributed international teams in an Agile/Scrum environment",
+          "Facilitated sprint meetings and kept work aligned across distributed teams in several countries, working in Scrum",
           "Wrote robust tests (unit, system, and E2E) using Playwright and Vitest, improving overall test coverage.",
           "Contributed to UX design discussions using Figma and coordinated development via Jira",
         ],
@@ -217,32 +217,12 @@ export const skillsByCategories = [
 // Projects
 export const projects = [
   {
-    title: "Budgetr",
+    title: "Smart Hiking Watch",
     description:
-      "A personal budgeting app for tracking spending across money pockets and transactions. A NestJS REST API with JWT authentication and PostgreSQL, a React dashboard with charts, and an earlier React Native (Expo) mobile prototype.",
-    tech: ["NestJS", "TypeORM", "PostgreSQL", "React", "TanStack Query", "Recharts", "Expo"],
-    status: "In progress",
-    links: [
-      { label: "Backend", url: "https://github.com/palfidani12/budgetr-backend" },
-      { label: "Frontend", url: "https://github.com/palfidani12/budgetr-frontend" },
-      { label: "Mobile", url: "https://github.com/palfidani12/budgetR" },
-    ],
-  },
-  {
-    title: "World Traveler",
-    description:
-      "A map-based travel app built with Next.js 16, Firebase email/password authentication and interactive Leaflet maps.",
-    tech: ["Next.js", "TypeScript", "Firebase", "Leaflet", "Tailwind CSS"],
-    status: "In progress",
-    links: [{ label: "Source", url: "https://github.com/palfidani12/world-traveler" }],
-  },
-  {
-    title: "Editable Data Table",
-    description:
-      "A Vue 3 app for viewing, creating, editing, deleting and sorting table rows with local persistence, covered by Vitest unit tests and Playwright end-to-end tests.",
-    tech: ["Vue 3", "TypeScript", "PrimeVue", "Vitest", "Playwright"],
+      "An embedded systems team project at Aalto. A LilyGO T-Watch (ESP32) tracks steps and GPS location and syncs over Bluetooth Low Energy to a Raspberry Pi hub, which calculates calories burned, sends them back to the watch and streams live hike sessions to a React web app.",
+    tech: ["C++", "ESP32", "Bluetooth LE", "Raspberry Pi", "Python", "FastAPI", "SQLite", "React", "TypeScript"],
     status: "Completed",
-    links: [{ label: "Source", url: "https://github.com/palfidani12/editable-data-table" }],
+    links: [{ label: "Source", url: "https://github.com/zsomborCzaban/smart_watch" }],
   },
   {
     title: "Personal Portfolio",
