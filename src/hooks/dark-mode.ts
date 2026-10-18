@@ -1,42 +1,50 @@
 import { useState, useEffect } from "react";
 
+const getSavedTheme = () => {
+  try {
+    return localStorage.getItem("theme");
+  } catch {
+    return null;
+  }
+};
+
 export const useDarkMode = () => {
-  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = getSavedTheme();
 
     if (savedTheme) return savedTheme === "dark";
 
-    return mediaQuery.matches;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const eventListener = (e: MediaQueryListEvent) => {
-      const savedTheme = localStorage.getItem("theme");
-
-      if (savedTheme) return savedTheme === "dark";
+      // An explicit choice wins over the system setting
+      if (getSavedTheme()) return;
       setIsDarkMode(e.matches);
     };
     mediaQuery.addEventListener("change", eventListener);
     return () => {
       mediaQuery.removeEventListener("change", eventListener);
     };
-  }, [mediaQuery]);
+  }, []);
 
   useEffect(() => {
-    const htmlElement = window.document.documentElement;
-
-    if (isDarkMode) {
-      htmlElement.setAttribute("data-theme", "dark");
-    } else {
-      htmlElement.setAttribute("data-theme", "light");
-    }
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDarkMode ? "dark" : "light"
+    );
   }, [isDarkMode]);
 
   const toggleTheme = () => {
-    const theme = isDarkMode ? "dark" : "light";
-    setIsDarkMode((prev) => !prev);
-    localStorage.setItem("theme", theme);
+    const nextIsDark = !isDarkMode;
+    setIsDarkMode(nextIsDark);
+    try {
+      localStorage.setItem("theme", nextIsDark ? "dark" : "light");
+    } catch {
+      // Storage unavailable (e.g. private mode) — the toggle still works for this visit
+    }
   };
 
   return { isDarkMode, toggleTheme };

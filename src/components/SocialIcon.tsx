@@ -1,6 +1,11 @@
 import { Mail } from "lucide-react";
-import githubIconUrl from "./../assets/github-mark-white.svg";
-import linkedInIconUrl from "./../assets/linkedin-dark.png";
+import { GithubIcon, LinkedinIcon } from "./BrandIcons";
+
+const icons = {
+  GitHub: GithubIcon,
+  LinkedIn: LinkedinIcon,
+  Email: Mail,
+};
 
 export const SocialIcon = ({
   iconType,
@@ -9,22 +14,18 @@ export const SocialIcon = ({
   iconType: "GitHub" | "LinkedIn" | "Email";
   iconUrl: string;
 }) => {
+  const Icon = icons[iconType];
+  const isEmail = iconType === "Email";
+
   return (
     <a
-      href={iconType === "Email" ? `mailto:${iconUrl}` : iconUrl}
-      target={iconType === "Email" ? "_self" : "_blank"}
+      href={isEmail ? `mailto:${iconUrl}` : iconUrl}
+      target={isEmail ? "_self" : "_blank"}
       rel="noopener noreferrer"
-      className="w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-cyan-500 text-white rounded transition-all backdrop-blur-sm"
+      className="grid place-items-center size-11 rounded-xl border border-line bg-surface/60 backdrop-blur text-muted hover:text-accent hover:border-accent hover:-translate-y-0.5 transition-all"
       aria-label={iconType}
     >
-      {iconType !== "Email" && (
-        <img
-          src={iconType === "GitHub" ? githubIconUrl : linkedInIconUrl}
-          alt={iconType}
-          className="w-5 h-5"
-        />
-      )}
-      {iconType === "Email" && <Mail className="w-5 h-5" />}
+      <Icon className="size-[18px]" />
     </a>
   );
 };

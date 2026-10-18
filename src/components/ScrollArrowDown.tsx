@@ -5,10 +5,11 @@ export const ScrollArrowDown = () => {
   return (
     <button
       onClick={() => scrollToSection("about")}
-      className="items-center cursor-pointer flex flex-row justify-center mt-18"
+      className="relative hidden sm:flex mx-auto my-10 flex-col items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-subtle hover:text-fg transition-colors cursor-pointer"
       aria-label="Scroll down"
     >
-      <ChevronDown className="w-8 h-8 animate-bounce text-(--default-font-color)" />
+      Scroll
+      <ChevronDown className="size-5 animate-bounce" />
     </button>
   );
 };

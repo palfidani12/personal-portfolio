@@ -1,78 +1,95 @@
 @import "tailwindcss";
 @import "./animations.css";
 
+/* Tailwind's `dark:` variant follows the data-theme attribute set by useDarkMode */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  /* Theme colors, usable as bg-bg, text-fg, border-line, text-accent ... */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+}
+
 /* CSS variables */
 :root {
   --animation-speed-fast: 0.3s;
   --animation-speed-medium: 0.6s;
   --animation-speed-slow: 1s;
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Theme variables */
-  --bg-color: #f8fafc;
-  --secondary-bg-color: var(--color-slate-100);
-  --footer-bg-color: var(--color-slate-900);
-  --nav-button-text-color: #1e293b;
-  --nav-button-text-color-hover: var(--color-cyan-400);
-  --bg-color-from: var(--color-white);
-  --bg-color-to: var(--color-slate-100);
-  --profile-pic-border-color: var(--color-slate-200);
-  --default-font-color: var(--color-slate-900);
-  --secondary-font-color: var(--color-slate-600);
-  --third-font-color: var(--color-slate-900);
-  --hero-button-bg-color: var(--color-slate-900);
-  --hero-button-hover-color: var(--color-slate-800);
-  --second-hero-button-border-color: var(--color-slate-300);
-  --second-hero-button-hover-border-color: var(--color-slate-400);
-  --second-hero-button-hover-bg-color: var(--color-slate-100);
-  --cyan-color: var(--color-cyan-600);
-  --cyan-hover-color: var(--color-cyan-700);
-  --pole-color: var(--color-slate-200);
+  /* Light theme */
+  --bg: #faf7f2;
+  --surface: #fffdf9;
+  --surface-2: #f2ebe0;
+  --fg: #1c1917;
+  --muted: #57534e;
+  --subtle: #8c857c;
+  --line: #e7dfd2;
+  --accent: #c2410c;
+  --accent-fg: #ffffff;
+  --accent-soft: color-mix(in oklab, var(--accent) 10%, transparent);
+
+  color-scheme: light;
 }
 
 /* Dark Mode Override */
 [data-theme="dark"] {
-  --bg-color: #0f172a;
-  --secondary-bg-color: var(--color-slate-800);
-  --footer-bg-color: var(--color-slate-950);
-  --nav-button-text-color: var(--color-slate-300);
-  --bg-color-from: var(--color-slate-900);
-  --bg-color-to: var(--color-slate-800);
-  --profile-pic-border-color: var(--color-slate-700);
-  --default-font-color: var(--color-white);
-  --secondary-font-color: var(--color-slate-300);
-  --third-font-color: var(--color-slate-400);
-  --hero-button-bg-color: var(--color-slate-700);
-  --hero-button-hover-color: var(--color-slate-600);
-  --second-hero-button-border-color: var(--color-slate-600);
-  --second-hero-button-hover-border-color: var(--color-slate-500);
-  --second-hero-button-hover-bg-color: color-mix(
-    in oklab,
-    var(--color-slate-800) /* oklch(27.9% 0.041 260.031) = #1d293d */ 50%,
-    transparent
-  );
-  --cyan-color: var(--color-cyan-400);
-  --cyan-hover-color: var(--color-cyan-300);
-  --pole-color: var(--color-slate-700);
-}
+  --bg: #0f0d0b;
+  --surface: #171411;
+  --surface-2: #1f1b17;
+  --fg: #f2ede6;
+  --muted: #b3aa9f;
+  --subtle: #7a7268;
+  --line: #2a2520;
+  --accent: #fb923c;
+  --accent-fg: #1a0f06;
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, transparent);
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+  color-scheme: dark;
 }
 
 /* Base Styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-color);
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--bg);
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition:
+    background-color var(--animation-speed-fast) var(--ease-smooth),
+    color var(--animation-speed-fast) var(--ease-smooth);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 /* Webkit custom scrollbar */
@@ -82,27 +99,29 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #cbd5e1, #94a3b8);
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  background: var(--line);
+  border: 2px solid var(--bg);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #94a3b8, #64748b);
+  background: var(--subtle);
 }
 
-[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: #0f172a;
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #334155, #475569);
-}
-
-[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #475569, #64748b);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -6,9 +6,10 @@ export const ThemeToggleButton = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="ml-4 text-(--nav-button-text-color) hover:text-(--nav-button-text-color-hover) transition-colors cursor-pointer"
+      className="grid place-items-center size-10 rounded-lg text-muted hover:text-fg hover:bg-surface-2 transition-colors cursor-pointer"
+      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      {isDarkMode ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
     </button>
   );
 };

@@ -1,45 +1,63 @@
+import { Bot, Code2, Server } from "lucide-react";
+import { aboutLead, aboutParagraphs, focusAreas } from "../data/data";
+import { Reveal } from "./Reveal";
+import { Section } from "./Section";
+
+const focusIcons = [Code2, Server, Bot];
+
 export const Intro = () => {
   return (
-    <div
+    <Section
       id="about"
-      className="py-24 px-6 lg:px-12 bg-(--bg-color) transition-colors"
+      index="01"
+      eyebrow="About"
+      title={
+        <>
+          Building software that is{" "}
+          <span className="font-serif font-semibold text-accent">
+            useful
+          </span>
+          , fast and a joy to use.
+        </>
+      }
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-[300px_1fr] gap-16">
-          {/* Left Column - Heading */}
-          <div>
-            <h2 className="text-5xl font-light text-(--default-font-color) mb-4">
-              Intro
-            </h2>
+      <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20">
+        <Reveal>
+          <p className="text-xl sm:text-2xl leading-snug text-fg mb-6 text-pretty">
+            {aboutLead}
+          </p>
+          <div className="space-y-4 text-base sm:text-lg text-muted leading-relaxed text-pretty">
+            {aboutParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
+        </Reveal>
 
-          {/* Right Column - Content */}
-          <div className="space-y-6 text-(--third-font-color) leading-relaxed">
-            <p>
-              I'm a master's student with multiple years of experience in
-              software development, mainly focusing on frontend technologies but
-              also having a strong background in backend development. I have a
-              drive to create web applications that are not only functional but
-              also efficient and user-friendly. I am passionate about learning
-              new technologies and continuously improving my skills to deliver
-              high-quality solutions.
-            </p>
-            <p>
-              My expertise spans across modern JavaScript frameworks,
-              particularly React and TypeScript, along with backend technologies
-              like Node.js and PostgreSQL. But I also enjoy exploring machine
-              learning and AI, which is why I am currently pursuing a master's
-              degree in autonomous systems and intelligent robotics.
-            </p>
-            <p>
-              When I'm not coding, I enjoy creating side projects that help me
-              learn new technologies and solve interesting problems. I also love
-              travelling and experiencing different cultures, which has given me
-              a broader perspective and a deeper understanding of the world.
-            </p>
-          </div>
-        </div>
+        <ul className="border-t border-line">
+          {focusAreas.map((area, index) => {
+            const Icon = focusIcons[index % focusIcons.length];
+            return (
+              <li key={area.title}>
+                <Reveal delay={index * 100}>
+                  <div className="group flex gap-5 py-6 border-b border-line">
+                    <span className="grid place-items-center size-11 rounded-xl bg-accent-soft text-accent shrink-0">
+                      <Icon className="size-5" />
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-medium text-fg mb-1.5">
+                        {area.title}
+                      </h3>
+                      <p className="text-muted leading-relaxed text-pretty">
+                        {area.description}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </div>
+    </Section>
   );
 };
