@@ -24,7 +24,7 @@ export const currentStatus = "Double-degree MSc · Aalto & EURECOM";
 export const aboutLead =
   "I'm a software engineer with 3 years of production experience, now completing a double-degree master's in Autonomous Systems and Intelligent Robots at Aalto University and EURECOM.";
 export const aboutParagraphs = [
-  "Most of my work has been on the frontend, building React and TypeScript features in a micro-frontend platform at Genesys, backed by solid Node.js and PostgreSQL experience. My master's is where I'm going deeper into AI, machine learning and robotics.",
+  "Most of my work has been on the frontend, building React and TypeScript features in a micro-frontend platform at Genesys, backed by solid Java Spring Boot experience. My master's is where I'm going deeper into AI, machine learning and robotics.",
   "Outside of work I build side projects to try out new technologies, and I've studied in four countries along the way.",
 ];
 export const focusAreas = [
@@ -36,7 +36,7 @@ export const focusAreas = [
   {
     title: "Backend & delivery",
     description:
-      "Node.js and Express APIs on PostgreSQL, shipped through CI/CD pipelines with Jenkins, Docker and AWS.",
+      "Java Spring Boot APIs, shipped through CI/CD pipelines with Jenkins, Docker and AWS.",
   },
   {
     title: "AI & robotics",
@@ -112,11 +112,11 @@ export const doubleDegree = {
 
 export const previousEducation = [
   {
-    degree: "Bachelor of Science in Computer Science",
+    degree: "Erasmus Exchange Semester in Computer Science",
     school: "Universidad del País Vasco",
     period: "2023.01 - 2023.06",
     description:
-      "Erasmus semester in Spain during my bachelor studies, where I deepened my knowledge of software development and gained international experience.",
+      "A semester abroad in Spain as part of my BSc at Eötvös Loránd University, where I deepened my knowledge of software development and gained international experience.",
   },
   {
     degree: "Bachelor of Science in Computer Science",
