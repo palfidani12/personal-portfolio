@@ -55,7 +55,7 @@ export const workExperiences = [
       {
         title: "Associate Software Engineer",
         type: "Full-time",
-        period: "2023.07 - 2025.08",
+        period: "2023.06 - 2025.08",
         tech: ["React", "TypeScript", "Vite", "SCSS", "Jenkins", "Docker", "AWS", "Playwright", "Vitest"],
         descriptionItems: [
           "Delivered end-to-end implementation of key features in a React + TypeScript micro-frontend environment using Vite and SCSS",
@@ -70,11 +70,11 @@ export const workExperiences = [
         title: "Associate Software Engineer",
         type: "Part-time",
         period: "2022.07 - 2023.06",
-        tech: ["React", "TypeScript", "Vite", "Node.js", "Express", "Playwright", "Jest"],
+        tech: ["React", "TypeScript", "Vite", "Java", "Spring Boot", "Playwright", "Jest"],
         descriptionItems: [
           "Joined a newly formed team building a next-generation frontend platform",
           "Built reusable, accessible React components using TypeScript and Vite",
-          "Developed backend integrations with Node.js and Express, connecting frontend with internal APIs",
+          "Developed backend integrations with Java Spring Boot, connecting frontend with internal APIs",
           "Practiced Agile and Git-based collaboration across multiple international teams",
           "Assisted in implementing automated testing pipelines using Playwright and Jest",
           "Recognized for strong technical autonomy and problem-solving, leading to promotion from part-time to full-time engineer within 12 months",
